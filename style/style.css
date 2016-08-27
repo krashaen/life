@@ -43,3 +43,21 @@ body {
     border: none;
     cursor: pointer;
 }
+
+.game-table {
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-collapse:collapse;
+    background-color: #c0c0c0;
+}
+
+.table-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000000;
+}
+
+.game-table .table-cell:hover {
+        background-color:#00ff00;
+}
