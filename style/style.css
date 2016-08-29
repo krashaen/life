@@ -11,6 +11,10 @@ body {
     width: 250px;
 }
 
+.form-hiden {
+    display: none;
+}
+
 .enter {
     margin: 0 auto;
     margin-top: 20px;
@@ -42,7 +46,24 @@ body {
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 }
+
+.start-button {
+    color: #fefefe;
+    background-color: #04B404;
+    width: 252px;
+    height: 51px;
+    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
 
 .game-table {
     margin: 0 auto;
@@ -53,11 +74,19 @@ body {
 }
 
 .table-cell {
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000000;
+    width: 30px;
+    height: 30px;
+    border: 1px dotted #000000;
 }
 
 .game-table .table-cell:hover {
-        background-color:#00ff00;
+    background-color:#00ff00;
+}
+
+.cell-life {
+    background-color:#00ff00;
+}
+
+.game-menu {
+    text-align: center; 
 }
