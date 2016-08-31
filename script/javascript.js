@@ -18,7 +18,7 @@ function create(obj) {
             for (var j = 1; j <= size; j++) {
                 newCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
                 matrix [i][j] = newCell;
-                newCell.onclick = cellClick(i, j);
+                matrix[i][j].onclick = cellClick;
                 newCell.className = "table-cell";
             }
         }
@@ -49,6 +49,7 @@ function gameMenuCreate () {
     newDiv.appendChild(newGameBut);
     newDiv.appendChild(startGameBut);
     newDiv.appendChild(resetGameBut);
+    newGameBut.onclick = clearGame;
     resetGameBut.onclick = resetCreate;
     startGameBut.onclick = startGame;
     startGameBut.id = 'startBtn';
@@ -66,8 +67,8 @@ function createButton(clasButton, buttonTitle) {
     return startButton;
 }
 
-function cellClick(i ,j) {
-    matrix[i][j].className = 'cell-life';
+function cellClick(e) {
+    e.target.className = 'cell-life';
 
 }
 
@@ -77,4 +78,8 @@ function startGame() {
     if (buttonTitle.textContent === 'Старт') {
 buttonTitle.textContent = 'Пауза';}
  else buttonTitle.textContent = 'Старт';
+}
+
+function clearGame() {
+    document.getElementsByTagName('td').className = 'table-cell';
 }
