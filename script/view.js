@@ -7,12 +7,12 @@ var view = {
         gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
         gameTable.className = "game-table";
         document.body.appendChild(gameTable);
-        for (var i = 1; i <= model.matrix.lenght ; i++) {
+        for (var i = 0; i < model.matrix.length ; i++) {
             newRow = gameTable.insertRow(0);//добавляем строку в созданной таблице 
-            for (var j = 1; j <= model.matrix.lenght; j++) {
+            for (var j = 0; j < model.matrix.length; j++) {
                 newCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
                 newCell = model.matrix [i][j];
-                newCell.className = "table-cell";
+                newCell.className = 'cell-life';
             }
         }
     }
