@@ -1,5 +1,9 @@
-function onClickCreate(obj) {
-    var size = document.getElementById('size');
-    size = parseInt(size.value); 
-    createGameTable(size);
+var controller = {
+    onClickCreate:  function () {
+        var size = document.getElementById('size');
+        size = parseInt(size.value);
+        model.createMatrix(size); 
+        view.showGameTable();
+    }
+
 }

@@ -33,9 +33,8 @@ var model = {
             if (roundCells[k].celStatus === 'life') counterLifeCell++; 
         }
 
-        k[0];
         if (selectedCell.celStatus === 'life') {
-            if (counterLifeCell < 2 && counterLifeCell >3) selectedCell.celStatus = 'dead'; 
+            if (counterLifeCell < 2 || counterLifeCell >3) selectedCell.celStatus = 'dead'; 
         } else {
            if (selectedCell.celStatus === 'dead') {
                if (counterLifeCell === 3) selectedCell.celStatus = 'life';

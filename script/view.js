@@ -1,3 +1,22 @@
+var view = {
+
+    showGameTable: function() {
+        var gameTable;
+        var newRow = null;
+        var newCell = null;
+        gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
+        gameTable.className = "game-table";
+        document.body.appendChild(gameTable);
+        for (var i = 1; i <= model.matrix.lenght ; i++) {
+            newRow = gameTable.insertRow(0);//добавляем строку в созданной таблице 
+            for (var j = 1; j <= model.matrix.lenght; j++) {
+                newCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
+                newCell = model.matrix [i][j];
+                newCell.className = "table-cell";
+            }
+        }
+    }
+};
 function showGameTable(size) {
     gameMenuCreate ();
     gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
