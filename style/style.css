@@ -73,13 +73,14 @@ body {
     background-color: #c0c0c0;
 }
 
-.table-cell {
+.cell-dead {
     width: 30px;
     height: 30px;
     border: 1px dotted #000000;
+    background-color: #c0c0c0;
 }
 
-.game-table .table-cell:hover {
+.game-table .cell-dead:hover {
     background-color:#00ff00;
 }
 
