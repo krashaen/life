@@ -31,6 +31,9 @@ var view = {
         resetGameBut = this.createButton('form-button', 'Новое поле');
         document.body.appendChild(newDiv);
         newDiv.appendChild(newGameBut);
+        newDiv.appendChild(startGameBut);
+        newDiv.appendChild(resetGameBut);
+        startGameBut.onvlick = controller.startGame();
     }, 
 
     createButton: function(classButton, buttonTitle) {
@@ -41,5 +44,6 @@ var view = {
         buttonValue = document.createTextNode(buttonTitle);
         startButton.appendChild(buttonValue);
         document.body.appendChild(startButton);
+        return startButton;
     }
 };
