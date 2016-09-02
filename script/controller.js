@@ -16,8 +16,13 @@ var controller = {
         clickElement = this.getAttribute('data-id');
         i = parseInt(clickElement[0]);
         j = parseInt(clickElement[1]);
-        this.className = 'cell-life';
-        model.matrix[i][j].celStatus = 'life';
+        if (model.matrix[i][j].celStatus === 'life') {
+            this.className = 'cell-dead';
+            model.matrix[i][j].celStatus = 'dead';
+        } else {
+            this.className = 'cell-life';
+            model.matrix[i][j].celStatus = 'life';
+        }
     }, 
 
     startGame: function() {
