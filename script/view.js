@@ -1,22 +1,26 @@
 var view = {
-
+    gameTable: null,
     showGameTable: function() {
-        var gameTable =null;
         var newRow = null;
         var newCell = null;
         var viewCell = null;
-        gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
-        gameTable.className = "game-table";
-        document.body.appendChild(gameTable);
+        var stringId = null;
+         if (this.gameTable != null) document.body.removeChild(document.body.children[5]);
+        this.gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
+        this.gameTable.className = "game-table";
+        document.body.appendChild(this.gameTable);
         for (var i = 0; i < model.matrix.length ; i++) {
-            newRow = gameTable.insertRow(0);//добавляем строку в созданной таблице 
+            newRow = this.gameTable.insertRow(0);//добавляем строку в созданной таблице 
             for (var j = 0; j < model.matrix.length; j++) {
                 viewCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
                 newCell = model.matrix[i][j];
+                stringId = i.toString() + j.toString();
+                viewCell.setAttribute('data-id', stringId);
                 if (newCell.celStatus === 'life') viewCell.className = 'cell-life';
                 if (newCell.celStatus === 'dead') viewCell.className = 'cell-dead';
+                viewCell.onclick = controller.onCellClick;
             }
-        }
+         }
     },
 
     gameMenuCreate: function() {
@@ -33,7 +37,8 @@ var view = {
         newDiv.appendChild(newGameBut);
         newDiv.appendChild(startGameBut);
         newDiv.appendChild(resetGameBut);
-        startGameBut.onvlick = controller.startGame();
+        startGameBut.onclick = controller.startGame;
+        resetGameBut.onclick = controller.resetCreate;
     }, 
 
     createButton: function(classButton, buttonTitle) {

@@ -18,17 +18,22 @@ var model = {
         var j = parseInt(id[1]);
         var roundCells = [];
         var selectedCell = this.matrix[i][j];
-
-        roundCells = [
-            this.matrix[i-1][j-1],
-            this.matrix[i-1][j],
-            this.matrix[i-1][j+1],
-            this.matrix[i][j-1],
-            this.matrix[i][j+1],
-            this.matrix[i+1][j-1],
-            this.matrix[i+1][j],
-            this.matrix[i+1][j+1]
-        ];
+        if (this.matrix[i-1][j-1]) roundCells.push(this.matrix[i-1][j-1])
+        else undefined ;
+        if (this.matrix[i-1][j]) roundCells.push(this.matrix[i-1][j])
+        else undefined ;
+        if (this.matrix[i-1][j+1]) roundCells.push(this.mmatrix[i-1][j+1])
+        else undefined ;
+        if (this.matrix[i][j-1]) roundCells.push(this.matrix[i][j-1])
+        else undefined ;
+        if (this.matrix[i][j+1]) roundCells.push(this.matrix[i][j+1])
+        else undefined ;
+        if (this.matrix[i+1][j-1]) roundCells.push(this.matrix[i+1][j-1])
+        else undefined ;
+        if (this.matrix[i+1][j]) roundCells.push(this.matrix[i+1][j])
+        else undefined ;
+        if (this.matrix[i+1][j+1]) roundCells.push(this.matrix[i+1][j+1])
+        else undefined ;
         for (var k = 0; k < roundCells.length; k++) {
             if (roundCells[k].celStatus === 'life') counterLifeCell++; 
         }
