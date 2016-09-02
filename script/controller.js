@@ -22,10 +22,17 @@ var controller = {
 
     startGame: function() {
         var buttonTitle = null;
+        var stringId = null;
         buttonTitle = document.getElementsByClassName('start-button');
         if (buttonTitle[0].textContent === 'Старт') {
             buttonTitle[0].textContent = 'Пауза';}
-            else buttonTitle[0].textContent = 'Старт';   
+            else buttonTitle[0].textContent = 'Старт';  
+        for (var i = 0; i < model.matrix.length ; i++) { 
+            for (var j = 0; j < model.matrix.length; j++) {
+                stringId = i.toString() + j.toString();
+                if (model.matrix[i][j].celStatus = 'life') model.updateMatrix(stringId);
+            }
+        }
         view.showGameTable();
         },
 

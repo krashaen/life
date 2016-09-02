@@ -12,28 +12,26 @@ var model = {
         }
     },
 
+    getCell: function(i, j) {
+        if (this.matrix[i] && this.matrix[i][j]) return this.matrix[i][j];
+        else return null;
+    },
+
     updateMatrix: function(id) {
         var counterLifeCell = 0;
         var i = parseInt(id[0]);
         var j = parseInt(id[1]);
         var roundCells = [];
         var selectedCell = this.matrix[i][j];
-        if (this.matrix[i-1][j-1]) roundCells.push(this.matrix[i-1][j-1])
-        else undefined ;
-        if (this.matrix[i-1][j]) roundCells.push(this.matrix[i-1][j])
-        else undefined ;
-        if (this.matrix[i-1][j+1]) roundCells.push(this.mmatrix[i-1][j+1])
-        else undefined ;
-        if (this.matrix[i][j-1]) roundCells.push(this.matrix[i][j-1])
-        else undefined ;
-        if (this.matrix[i][j+1]) roundCells.push(this.matrix[i][j+1])
-        else undefined ;
-        if (this.matrix[i+1][j-1]) roundCells.push(this.matrix[i+1][j-1])
-        else undefined ;
-        if (this.matrix[i+1][j]) roundCells.push(this.matrix[i+1][j])
-        else undefined ;
-        if (this.matrix[i+1][j+1]) roundCells.push(this.matrix[i+1][j+1])
-        else undefined ;
+        if (this.getCell(i - 1, j - 1) != null) roundCells.push(this.getCell(i - 1, j - 1));
+        if (this.getCell(i - 1, j) != null) roundCells.push(this.getCell(i - 1, j));
+        if (this.getCell(i - 1, j + 1) != null) roundCells.push(this.getCell(i - 1, j + 1));
+        if (this.getCell(i, j - 1) != null) roundCells.push(this.getCell(i, j - 1));
+        if (this.getCell(i, j + 1) != null) roundCells.push(this.getCell(i, j + 1));
+        if (this.getCell(i + 1, j - 1) != null) roundCells.push(this.getCell(i + 1, j - 1));
+        if (this.getCell(i + 1, j) != null) roundCells.push(this.getCell(i + 1, j));
+        if (this.getCell(i + 1, j + 1) != null) roundCells.push(this.getCell(i + 1, j + 1));
+
         for (var k = 0; k < roundCells.length; k++) {
             if (roundCells[k].celStatus === 'life') counterLifeCell++; 
         }
