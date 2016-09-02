@@ -36,6 +36,16 @@ var controller = {
         view.showGameTable();
         },
 
+        newGame: function() {
+            for (var i = 0; i < model.matrix.length ; i++) { 
+                for (var j = 0; j < model.matrix.length; j++) {
+                    stringId = i.toString() + j.toString();
+                    model.matrix[i][j].celStatus = 'dead';
+                }
+            }
+            view.showGameTable();
+        },
+
         resetCreate: function() {
             var formVisible = null;
             formVisible = document.getElementsByClassName('form-hiden');

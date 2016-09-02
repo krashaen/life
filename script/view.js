@@ -39,6 +39,7 @@ var view = {
         newDiv.appendChild(resetGameBut);
         startGameBut.onclick = controller.startGame;
         resetGameBut.onclick = controller.resetCreate;
+        newGameBut.onclick = controller.newGame;
     }, 
 
     createButton: function(classButton, buttonTitle) {
