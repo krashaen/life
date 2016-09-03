@@ -16,13 +16,8 @@ var controller = {
         clickElement = this.getAttribute('data-id');
         i = parseInt(clickElement[0]);
         j = parseInt(clickElement[1]);
-        if (model.matrix[i][j].celStatus === 'life') {
-            this.className = 'cell-dead';
-            model.matrix[i][j].celStatus = 'dead';
-        } else {
-            this.className = 'cell-life';
-            model.matrix[i][j].celStatus = 'life';
-        }
+        this.className = 'cell-life';
+        model.matrix[i][j].celStatus = 'life';
     }, 
 
     startGame: function() {
@@ -35,7 +30,7 @@ var controller = {
         for (var i = 0; i < model.matrix.length ; i++) { 
             for (var j = 0; j < model.matrix.length; j++) {
                 stringId = i.toString() + j.toString();
-                if (model.matrix[i][j].celStatus = 'life') model.updateMatrix(stringId);
+                model.updateMatrix(stringId);
             }
         }
         view.showGameTable();

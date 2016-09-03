@@ -1,5 +1,6 @@
 var model = {
     matrix: [],
+    newMatrix: [],
     createMatrix: function(size) {
         for (var i = 0; i < size; i++) {
             this.matrix[i] = [];

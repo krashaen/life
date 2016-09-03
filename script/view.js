@@ -14,7 +14,7 @@ var view = {
             for (var j = 0; j < model.matrix.length; j++) {
                 viewCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
                 newCell = model.matrix[i][j];
-                stringId = i.toString() + j.toString();
+                stringId = i.toString() + '-' + j.toString();
                 viewCell.setAttribute('data-id', stringId);
                 if (newCell.celStatus === 'life') viewCell.className = 'cell-life';
                 if (newCell.celStatus === 'dead') viewCell.className = 'cell-dead';
