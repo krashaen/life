@@ -14,8 +14,8 @@ var controller = {
         var i = null;
         var j = null;
         clickElement = this.getAttribute('data-id');
-        i = parseInt(clickElement[0]);
-        j = parseInt(clickElement[1]);
+        i = parseInt(clickElement.split('-')[0]);
+        j = parseInt(clickElement.split('-')[1]);
         this.className = 'cell-life';
         model.matrix[i][j].celStatus = 'life';
     }, 
@@ -29,7 +29,7 @@ var controller = {
             else buttonTitle[0].textContent = 'Старт';  
         for (var i = 0; i < model.matrix.length ; i++) { 
             for (var j = 0; j < model.matrix.length; j++) {
-                stringId = i.toString() + j.toString();
+                stringId = i.toString() + '-' + j.toString();
                 model.updateMatrix(stringId);
             }
         }

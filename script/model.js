@@ -20,8 +20,8 @@ var model = {
 
     updateMatrix: function(id) {
         var counterLifeCell = 0;
-        var i = parseInt(id[0]);
-        var j = parseInt(id[1]);
+        var i = parseInt(id.split('-')[0]);
+        var j = parseInt(id.split('-')[1]);
         var roundCells = [];
         var selectedCell = this.matrix[i][j];
         if (this.getCell(i - 1, j - 1) != null) roundCells.push(this.getCell(i - 1, j - 1));
