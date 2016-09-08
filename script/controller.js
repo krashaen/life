@@ -5,7 +5,7 @@ var controller = {
         size = parseInt(size.value);
         view.gameMenuCreate();
         model.createMatrix(size); 
-        view.showGameTable();
+        view.showGameTable(model.matrix);
         var x = document.getElementsByClassName('game-form');
         x[0].className = 'form-hiden';
     },
@@ -34,12 +34,17 @@ var controller = {
             buttonTitle[0].textContent = 'Пауза';}
             else buttonTitle[0].textContent = 'Старт';
         for (var i = 0; i < model.matrix.length ; i++) { 
+            model.newMatrix[i] = [];
             for (var j = 0; j < model.matrix.length; j++) {
+                model.newMatrix[i][j] = {
+                    celStatus: model.matrix[i][j].celStatus,
+                    id: model.matrix[i][j].id
+                    };
                 stringId = i.toString() + '-' + j.toString();
                 model.updateMatrix(stringId);
             }
         }
-        view.showGameTable();
+        view.showGameTable(model.newMatrix);
 
         },
 
@@ -50,7 +55,7 @@ var controller = {
                     model.matrix[i][j].celStatus = 'dead';
                 }
             }
-            view.showGameTable();
+            view.showGameTable(model.matrix);
         },
 
         resetCreate: function() {

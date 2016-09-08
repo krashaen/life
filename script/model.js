@@ -38,10 +38,16 @@ var model = {
         }
 
         if (selectedCell.celStatus === 'life') {
-            if (counterLifeCell < 2 || counterLifeCell >3) selectedCell.celStatus = 'dead'; 
+            if (counterLifeCell < 2 || counterLifeCell >3) this.newMatrix[i][j] = { 
+                    id: i.toString() + j.toString(),
+                    celStatus: 'dead'
+                }; 
         } else {
            if (selectedCell.celStatus === 'dead') {
-               if (counterLifeCell === 3) selectedCell.celStatus = 'life';
+               if (counterLifeCell === 3) this.newMatrix[i][j] = { 
+                    id: i.toString() + j.toString(),
+                    celStatus: 'life'
+                };
             } 
         }
 

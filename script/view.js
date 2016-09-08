@@ -1,6 +1,6 @@
 var view = {
     gameTable: null,
-    showGameTable: function() {
+    showGameTable: function(matrix) {
         var newRow = null;
         var newCell = null;
         var viewCell = null;
@@ -9,11 +9,11 @@ var view = {
         this.gameTable = document.createElement("table");//создаём новый элемент страницы (TABLE) 
         this.gameTable.className = "game-table";
         document.body.appendChild(this.gameTable);
-        for (var i = 0; i < model.matrix.length ; i++) {
+        for (var i = 0; i < matrix.length ; i++) {
             newRow = this.gameTable.insertRow(0);//добавляем строку в созданной таблице 
-            for (var j = 0; j < model.matrix.length; j++) {
+            for (var j = 0; j < matrix.length; j++) {
                 viewCell = newRow.insertCell(0);//в созданной строке добавляем столбец 
-                newCell = model.matrix[i][j];
+                newCell = matrix[i][j];
                 stringId = i.toString() + '-' + j.toString();
                 viewCell.setAttribute('data-id', stringId);
                 if (newCell.celStatus === 'life') viewCell.className = 'cell-life';
